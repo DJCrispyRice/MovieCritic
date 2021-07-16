@@ -5,5 +5,31 @@
 {% block body %}
 <div class="container">
     <h1> Welcome to MovieCritic !!!</h1>
+
+    <div class="container">
+        <h2>New movies</h2>
+        <div class="row flex">
+            {% for movie in latestMovies %}
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#">{{ movie.title }}</a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="col-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="#">See all movies by date</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
