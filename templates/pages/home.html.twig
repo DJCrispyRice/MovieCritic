@@ -3,7 +3,7 @@
 {% block title %}MovieCritic{% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="container mt-4">
     <h1> Welcome to MovieCritic !!!</h1>
 
     <div class="container">
@@ -12,9 +12,12 @@
             {% for movie in latestMovies %}
                 <div class="col-2">
                     <div class="card">
+                        {% if movie.poster is defined and movie.poster != '' %}
+                            <img class="card-img-top" src="{{ movie.poster }}"/>
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="#">{{ movie.title }}</a>
+                                <a href="{{ path('movie.show', {id: movie.id, slug: movie.slug}) }}">{{ movie.title }}</a>
                             </h5>
                         </div>
                     </div>

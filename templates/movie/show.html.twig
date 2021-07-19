@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>{{ movie.title }}</h1>
+        <div class="row">
+            <div class="col-md-4">
+                {% if movie.poster is defined and movie.poster != '' %}
+                    <img src="{{ movie.poster }}" style="width: 100%"/>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Rating</td>
+                        <td>TO BE FILLED</td>
+                    </tr>
+                    <tr>
+                        <td>Directed by</td>
+                        <td>TO BE FILLED</td>
+                    </tr>
+                    <tr>
+                        <td>Length</td>
+                        <td>{{ movie.length }}min</td>
+                    </tr>
+                    <tr>
+                        <td>Main casting</td>
+                        <td>TO BE FILLED</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                TO BE FILLED : GENRA IN KEYWORD STYLE
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{ movie.description }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                TO BE FILLED : REVIEWS !!
+            </div>
+        </div>
+    </div>
+{% endblock %}

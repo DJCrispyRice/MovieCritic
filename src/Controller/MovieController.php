@@ -39,4 +39,24 @@ class MovieController extends AbstractController
             'current_menu' => 'movies'
         ]);
     }
+
+    /**
+     * @Route("/movie/{slug}-{id}", name="movie.show", requirements={"slug": "[a-z0-9\-]*"})
+     * @param Movie $movie
+     * @return Response
+     */
+    public function show(Movie $movie, string $slug): Response
+    {
+        if ($movie->getSlug() !== $slug) {
+            return $this->redirectToRoute("movie.show", [
+                'id' => $movie->getId(),
+                'slug' => $movie->getSlug()
+            ], 301);
+        }
+        return $this->render('movie/show.html.twig', [
+            'movie' => $movie,
+            'current_menu' => 'movies'
+        ]);
+    }
+
 }
